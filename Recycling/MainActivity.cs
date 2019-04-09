@@ -24,7 +24,7 @@ namespace Recycling
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
-         
+            EditText ed = FindViewById<EditText>(Resource.Id.fab);
 
         }
 
