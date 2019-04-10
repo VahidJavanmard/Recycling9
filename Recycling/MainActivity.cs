@@ -24,8 +24,51 @@ namespace Recycling
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
-            EditText ed = FindViewById<EditText>(Resource.Id.fab);
+            Button bt = FindViewById<Button>(Resource.Id.submit);
+            bt.Click += Bt_Click;
+            bt.Text = "ارسال کد تایید";
+            bt.Enabled = false;
+            EditText ed = FindViewById<EditText>(Resource.Id.InputNumber);
+            ed.TextChanged += Ed_TextChanged;
 
+        }
+
+        private void Ed_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            EditText ed = FindViewById<EditText>(Resource.Id.InputNumber);
+            if (ed.Text.Length >= 10)
+            {
+                Button bt = FindViewById<Button>(Resource.Id.submit);
+                bt.Enabled = true;
+            }
+        }
+
+        private void Bt_Click(object sender, EventArgs e)
+        {
+            EditText ed = FindViewById<EditText>(Resource.Id.InputNumber);
+            ed.Text = "";
+            ed.Hint = "کد فعال سازی را وارد کنید";
+            ed.TextChanged += Ed_TextChanged1;
+
+
+            Button bt = FindViewById<Button>(Resource.Id.submit);
+            bt.Text = "تایید";
+            bt.Enabled = false;
+
+        }
+
+        private void Ed_TextChanged1(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            EditText ed = FindViewById<EditText>(Resource.Id.InputNumber);
+
+
+
+       
+            if (ed.Text.Length == 4)
+            {
+                Button bt = FindViewById<Button>(Resource.Id.submit);
+                bt.Enabled = true;
+            }
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
