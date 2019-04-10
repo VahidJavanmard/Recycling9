@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Runtime;
@@ -6,21 +7,24 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace Recycling
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-
+        private Toolbar myToolbar;
+        private ListView MyListView;
+        private List<string> List;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
+            //Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            //SetSupportActionBar(toolbar);
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
@@ -68,7 +72,36 @@ namespace Recycling
             {
                 Button bt = FindViewById<Button>(Resource.Id.submit);
                 bt.Enabled = true;
+                bt.Click += Bt_Click1;
             }
+        }
+
+        private void Bt_Click1(object sender, EventArgs e)
+        {
+            SetContentView(Resource.Layout.Map);
+            myToolbar = FindViewById<Toolbar>(Resource.Id.MyToolBar);
+            SetSupportActionBar(myToolbar);
+            MyListView = FindViewById<ListView>(Resource.Id.MyListView);
+            List = new List<string>()
+            {
+                "اطلاعات کاربری",
+                "تاریخچه",
+                "آدرس های منتخب",
+                "پیام ها",
+                "پشتیبانی",
+                "تنظیمات",
+                "درباره ما",
+                "خروج",
+
+
+            };
+            MyListView.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, List);
+            MyListView.ItemClick += MyListView_ItemClick;
+        }
+
+        private void MyListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Toast.MakeText(this, List[e.Position], ToastLength.Short).Show();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
