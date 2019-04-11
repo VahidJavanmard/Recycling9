@@ -34,7 +34,7 @@ namespace Recycling
            
             Button bt = FindViewById<Button>(Resource.Id.submit);
             bt.Click += Bt_Click;
-            bt.Text = "ارسال کد تایید";
+            //bt.Text = "ارسال کد تایید";
             bt.Enabled = false;
             EditText ed = FindViewById<EditText>(Resource.Id.InputNumber);
             ed.TextChanged += Ed_TextChanged;
