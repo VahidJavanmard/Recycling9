@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Recycling</string>
+    <string name="app_name">بازیافت</string>
     <string name="action_settings">Settings</string>
-  <string name="openDrawer">Drawer open</string>
-  <string name="closeDrawe">Drawer Close</string>
+  <string name="openDrawer">بازیافت</string>
+  <string name="closeDrawe">بازیافت</string>
 
 </resources>

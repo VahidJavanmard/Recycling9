@@ -86,8 +86,10 @@ namespace Recycling
             myToolbar = FindViewById<Toolbar>(Resource.Id.MyToolBar);
             SetSupportActionBar(myToolbar);
             MyListView = FindViewById<ListView>(Resource.Id.MyListView);
+
             List = new List<string>()
             {
+
                 "اطلاعات کاربری",
                 "تاریخچه",
                 "آدرس های منتخب",
@@ -153,6 +155,12 @@ namespace Recycling
                     manageDrawer.OnOptionsItemSelected(item);
                     break;
                 }
+                case Resource.Id.search:
+                {
+                    Toast.MakeText(this, "Search", ToastLength.Short).Show();
+                    break;
+                }
+
             }
             return base.OnOptionsItemSelected(item);
         }
@@ -165,7 +173,8 @@ namespace Recycling
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-      
+       
+
     }
 }
 
