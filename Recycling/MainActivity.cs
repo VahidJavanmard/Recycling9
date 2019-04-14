@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.App;
+using Android.Gms.Maps;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -115,6 +116,25 @@ namespace Recycling
             SupportActionBar.SetDisplayShowTitleEnabled(true);
             manageDrawer.SyncState();
 
+
+
+
+
+
+
+
+            //var mapFragment = (MapFragment)FragmentManager.FindFragmentById(Resource.Id.map);
+            //mapFragment.GetMapAsync(this);
+
+            var mapFrag = MapFragment.NewInstance();
+            //var activity = this.FragmentManager.BeginTransaction().Add(Resource.Id.map)
+
+
+            this.FragmentManager.BeginTransaction()
+                                    .Add(Resource.Id.map,mapFrag, "map_fragment").Commit();
+         
+
+
             //if (savedInstanceState != null)
             //{
             //    if (savedInstanceState.GetString("DrawerState") == "Opend")
@@ -133,7 +153,7 @@ namespace Recycling
 
 
         }
-
+       
         private void MyListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             Toast.MakeText(this, List[e.Position], ToastLength.Short).Show();
