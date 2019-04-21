@@ -5,26 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/pgold"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="بازیافت"
+        android:gravity="center_vertical"
+        android:layout_marginRight="120dp"
+        android:layout_marginLeft="100dp"
+        android:textSize="50dp"
+        android:layout_marginTop="95dp"
+        android:textColor="#ff000000"
+        
+    />
+
     <EditText
+        android:hint = "شماره خود را وارد کنید"
         android:inputType="number"
         android:layout_centerInParent="true"
-     
         android:gravity="center_vertical"
-          android:layout_marginRight="50dp"
-    android:layout_marginLeft="50dp"
-        android:background="@menu/editTextBackground"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="#ffe3e3e3"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:id="@+id/InputNumber" />
+
     <Button
+        android:background="#aa0000ff"
+        android:text="دریافت کد تایید"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/submit" 
+        android:id="@+id/submit"
         android:layout_marginTop="375dp"
         android:layout_marginLeft="135dp"
         android:layout_marginRight="134dp"
+        android:textColor="#ffffffff"
+        android:textSize="19dp"
+        android:padding="4dp"
+        
     />
 
     
